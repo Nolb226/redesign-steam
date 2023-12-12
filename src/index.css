@@ -4,7 +4,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 #root {
-  height: 100vh;
+  /* height: 100vh; */
+  position: relative;
+}
+
+#root::after {
+  content: "";
+  display: block;
+  height: 606px;
 }
 
 @font-face {

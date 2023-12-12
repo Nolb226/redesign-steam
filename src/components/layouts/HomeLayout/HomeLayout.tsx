@@ -1,16 +1,20 @@
-import React from 'react';
-import Header from '../components/Header';
-import Menu from '../components/Menu';
-import Footer from '../components/Footer';
+import React from "react";
+import Header from "../components/Header";
+import Menu from "../components/Menu";
+import Footer from "../components/Footer";
+import { Outlet } from "react-router-dom";
 
 function HomeLayout() {
-	return (
-		<>
-			<Header />
-			<Menu />
-			<Footer />
-		</>
-	);
+  return (
+    <>
+      <Header />
+      <Menu />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+    </>
+  );
 }
 
 export default HomeLayout;
