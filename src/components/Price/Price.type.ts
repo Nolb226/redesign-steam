@@ -1,1 +1,4 @@
-export type PriceProps = {};
+export type PriceProps = {
+  price: number;
+  sale?: number;
+};
