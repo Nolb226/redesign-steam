@@ -2,18 +2,28 @@ import React from "react";
 import { CardProps } from "./Card.type";
 import Price from "../Price";
 import WishList from "../buttons/WishList";
+import CTAButton from "../buttons/CTAButton";
+import Button from "../buttons/Button";
+import clsx from "clsx";
+import { ReactComponent as WindowIcon } from "../../assets/icons/Vector.svg";
 
-const variants = {};
-
-function Card({}: CardProps) {
-  return (
-    <div className="flex w-full flex-col gap-[8px] bg-main p-[15px]">
-      <div className="">
-        <img src="/images/image 53.png" alt="" className="h-[179px] w-full" />
-      </div>
-      <div className="">
-        <p className="heading-medium">The Last Of Us: Part 1</p>
-      </div>
+function Card({ app, variant = "default", direction = "vertical" }: CardProps) {
+  const variants = {
+    "sale-off": (
+      <>
+        <div className="flex gap-[14px]">
+          <div className="flex flex-1 items-center justify-between">
+            <WindowIcon />
+            <p className="text-dim body-medium">Until Nov 6</p>
+            <div className="flex gap-[26px]">
+              <Price price={app.price} sale={app.sale} />
+              <WishList />
+            </div>
+          </div>
+        </div>
+      </>
+    ),
+    "play-now": (
       <div className="flex gap-[14px]">
         <div className="flex flex-1 items-center justify-between">
           <svg
@@ -28,12 +38,60 @@ function Card({}: CardProps) {
               fill="#76808C"
             />
           </svg>
-          <p className="text-dim body-medium">Until Nov 6</p>
+
+          <div className="flex items-center gap-[10.5px]">
+            <span className="text-dim heading-small">Free</span>
+            <CTAButton>Play Now</CTAButton>
+          </div>
         </div>
-        <div className="flex gap-[26px]">
-          <Price />
-          <WishList />
+      </div>
+    ),
+    update: (
+      <>
+        <div className="flex gap-1">
+          <Button variant="tertiary" className="flex-1 text-main">
+            In Wishlist
+          </Button>
+          <Button variant="secondary" className="flex-1 bg-highlight text-main">
+            View Updates
+          </Button>
         </div>
+      </>
+    ),
+    live: <></>,
+    default: (
+      <>
+        <div className="flex gap-[14px]">
+          <div className="flex flex-1 items-center justify-between">
+            <WindowIcon />
+            <div className="flex gap-[26px]">
+              <Price price={app.price} />
+              <WishList />
+            </div>
+          </div>
+        </div>
+      </>
+    ),
+  };
+  return (
+    <div
+      className={`flex w-full rounded-[5px] bg-main p-[15px] ${clsx({
+        " flex-col gap-2 ": direction === "vertical",
+        "gap-4": direction === "horizontal",
+      })}`}
+    >
+      <div className="">
+        <img src={app.poster} alt="" className=" w-full" />
+      </div>
+      <div
+        className={clsx({
+          "flex flex-1 flex-col justify-between ": direction === "horizontal",
+        })}
+      >
+        <div className="">
+          <p className="heading-medium">{app.name}</p>
+        </div>
+        {variants[variant!]}
       </div>
     </div>
   );

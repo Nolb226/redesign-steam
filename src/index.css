@@ -11,7 +11,7 @@
 #root::after {
   content: "";
   display: block;
-  height: 606px;
+  height: 352px;
 }
 
 @font-face {

@@ -26,11 +26,11 @@ const apps: IApp[] = [
   },
 ];
 
-function SpecialOffers() {
+function UnderPrice() {
   return (
     <section>
       <div className="flex justify-between">
-        <p className="heading-small">Special Offers</p>
+        <p className="heading-small">Under 5$</p>
         <p className="">
           <Button variant="tertiary">See more</Button>
         </p>
@@ -52,4 +52,4 @@ function SpecialOffers() {
   );
 }
 
-export default SpecialOffers;
+export default UnderPrice;

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import Notifications from "../../../Notifications/Notifications";
 import FriendList from "../../../FriendList";
+import UserMenu from "../../../UserMenu";
 
 const navigate = [
   {
@@ -44,18 +45,7 @@ function Header() {
         <div className="flex gap-[6px]">
           <FriendList />
           <Notifications />
-          <div className="flex items-center gap-2  rounded bg-highlight p-2 py-[6px] text-dim">
-            <img src="./avatar1.jpg" alt="" className="h-5 w-5 object-cover" />
-            <div className="">
-              <p className="text-sm text-main">Khánh Hoàng</p>
-            </div>
-            <div className="">
-              <p className="text-sm">$100.2</p>
-            </div>
-            <div className="">
-              <ChevronDownIcon className="h-4 w-4" />
-            </div>
-          </div>
+          <UserMenu />
         </div>
       </div>
     </header>

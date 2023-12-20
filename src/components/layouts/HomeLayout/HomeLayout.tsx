@@ -8,7 +8,6 @@ function HomeLayout() {
   return (
     <>
       <Header />
-      <Menu />
       <main>
         <Outlet />
       </main>

@@ -1,4 +1,4 @@
-import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import React from "react";
 
 const items = [

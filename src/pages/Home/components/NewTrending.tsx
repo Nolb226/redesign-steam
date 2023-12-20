@@ -1,8 +1,8 @@
 import React from "react";
+import { IApp } from "../../../types/apps";
 import Button from "../../../components/buttons/Button";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import Card from "../../../components/Card";
-import { IApp } from "../../../types/apps";
 
 const apps: IApp[] = [
   {
@@ -26,11 +26,11 @@ const apps: IApp[] = [
   },
 ];
 
-function SpecialOffers() {
+function NewTrending() {
   return (
     <section>
       <div className="flex justify-between">
-        <p className="heading-small">Special Offers</p>
+        <p className="heading-small">New & Trending</p>
         <p className="">
           <Button variant="tertiary">See more</Button>
         </p>
@@ -41,7 +41,7 @@ function SpecialOffers() {
         </div>
         <div className="grid flex-1 grid-cols-3 gap-[20.75px] rounded-[5px] p-[15px]">
           {apps.map((app) => (
-            <Card app={app} variant="sale-off" />
+            <Card app={app} />
           ))}
         </div>
         <div className="">
@@ -52,4 +52,4 @@ function SpecialOffers() {
   );
 }
 
-export default SpecialOffers;
+export default NewTrending;

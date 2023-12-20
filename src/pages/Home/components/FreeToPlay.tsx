@@ -1,32 +1,28 @@
 import React from "react";
 import Button from "../../../components/buttons/Button";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
-import Card from "../../../components/Card";
 import { IApp } from "../../../types/apps";
+import Card from "../../../components/Card";
 
 const apps: IApp[] = [
   {
-    name: "The Last of Us: Part 1",
-    poster: "/images/image 53.png",
-    price: 59.99,
-    sale: 20,
-  },
-
-  {
-    name: "Iratus: Lord of the Dead",
-    poster: "/images/image 54.png",
-    price: 29.99,
-    sale: 87,
+    poster: "/images/image 56.png",
+    name: "Destiny 2",
+    price: 100,
   },
   {
-    name: "Beyond: Two Souls",
-    poster: "/images/image 55.png",
-    price: 19.99,
-    sale: 60,
+    poster: "/images/image 57.png",
+    name: "Halo Infinite",
+    price: 100,
+  },
+  {
+    poster: "/images/image 58.png",
+    name: "Team Fortress 2",
+    price: 100,
   },
 ];
 
-function SpecialOffers() {
+function FreeToPlay() {
   return (
     <section>
       <div className="flex justify-between">
@@ -41,7 +37,7 @@ function SpecialOffers() {
         </div>
         <div className="grid flex-1 grid-cols-3 gap-[20.75px] rounded-[5px] p-[15px]">
           {apps.map((app) => (
-            <Card app={app} variant="sale-off" />
+            <Card app={app} variant="play-now" />
           ))}
         </div>
         <div className="">
@@ -52,4 +48,4 @@ function SpecialOffers() {
   );
 }
 
-export default SpecialOffers;
+export default FreeToPlay;

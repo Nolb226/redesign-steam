@@ -37,7 +37,7 @@ function FriendList() {
         <UsersIcon className="h-5 w-5" />
       </div>
       {isOpen && (
-        <div className="absolute mt-[8px]  w-[338px] rounded-[5px]  bg-highlight bg-gradient-to-b from-secondary-color to-[#1E2329] p-4 shadow-[0_0_4px_1px_rgba(0,0,0,0.25)]">
+        <div className="absolute mt-[8px] w-[338px] rounded-[5px] bg-highlight bg-gradient-to-b from-secondary-color to-[#1E2329] p-4 shadow-[0_0_4px_1px_rgba(0,0,0,0.25)]">
           <div className="flex items-start gap-[8px]">
             <div className="bg-[#76808C] p-[2px]">
               <img
