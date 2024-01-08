@@ -1,7 +1,6 @@
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { InfoToolTipProps } from "./InfoToolTip.type";
-import { useSpring } from "@react-spring/web";
 
 function InfoToolTip({ info }: InfoToolTipProps) {
   return (

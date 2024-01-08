@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import Notifications from "../../../Notifications/Notifications";
 import FriendList from "../../../FriendList";
 import UserMenu from "../../../UserMenu";
@@ -29,7 +27,7 @@ function Header() {
     <header className="flex flex-col gap-4 bg-main p-4 lg:flex-row lg:items-center lg:gap-0 ">
       <div className="flex items-center">
         <div className="">
-          <img src="./Steam.svg" className="h-[22px] w-[88px]" />
+          <img src="./Steam.svg" alt="logo" className="h-[22px] w-[88px]" />
         </div>
         <div className="ml-[66px]">
           <ul className="flex items-center gap-[66px]">

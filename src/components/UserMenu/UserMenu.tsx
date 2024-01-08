@@ -1,5 +1,4 @@
 import React, { ForwardedRef, useState } from "react";
-import { UserMenuProps } from "./UserMenu.type";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import { Link } from "react-router-dom";
@@ -39,7 +38,7 @@ const MenuItems = [
   },
 ];
 
-function UserMenu({}: UserMenuProps) {
+function UserMenu() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const ref = useOutsideClick(() => setIsOpen(false));
 

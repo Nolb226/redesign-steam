@@ -1,9 +1,7 @@
 import React from "react";
-import { HomeProps } from "./Home.type";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import GenreTags from "../../components/GenreTags";
 import WishList from "../../components/buttons/WishList";
-import CTAButton from "../../components/buttons/CTAButton";
 import Button from "../../components/buttons/Button";
 import SpecialOffers from "./components/SpecialOffers";
 import BrowseSteam from "./components/BrowseSteam";
@@ -14,7 +12,7 @@ import TopSellers from "./components/TopSellers";
 import UnderPrice from "./components/UnderPrice";
 import Menu from "../../components/layouts/components/Menu";
 
-function Home({}: HomeProps) {
+function Home() {
   return (
     <>
       <Menu />

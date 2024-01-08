@@ -1,8 +1,8 @@
-import React, { cloneElement, useState } from "react";
+import React, { useState } from "react";
 import { WishListProps } from "./WishList.type";
 import { HeartIcon } from "@heroicons/react/24/solid";
 import { HeartIcon as HearOutline } from "@heroicons/react/24/outline";
-import { animated, useSpring, useTransition } from "@react-spring/web";
+import { animated, useSpring } from "@react-spring/web";
 import clsx from "clsx";
 
 function WishList({ children }: WishListProps) {
