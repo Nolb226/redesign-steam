@@ -2,7 +2,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import { SearchProps } from "./Search.type";
 
-function Search({}: SearchProps) {
+function Search({ onSearch }: SearchProps) {
   return (
     <label
       htmlFor="search"
@@ -13,6 +13,7 @@ function Search({}: SearchProps) {
         placeholder="Search Settings..."
         type="text"
         className="flex-1 border-none bg-transparent outline-none placeholder:text-secondary-color placeholder:body-medium"
+        onChange={(e) => onSearch && onSearch(e.target.value)}
       />
       <MagnifyingGlassIcon className="h-4 w-4 font-bold text-secondary-color" />
     </label>
