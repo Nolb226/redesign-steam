@@ -1,31 +1,7 @@
 import React from "react";
 import { CategoryProps } from "./Category.type";
 
-const colors = [
-  {
-    from: "[#171124]/70",
-    to: "[#171124]",
-  },
-  {
-    from: "[#0E1325]/50",
-    to: "[#0E1325]",
-  },
-  {
-    from: "[#23374B]/40",
-    to: "[#23374B]",
-  },
-  {
-    from: "[#163F24]/60",
-    to: "[#163F24]",
-  },
-  {
-    from: "[#583C1A]/50",
-    to: "[#583C1A]",
-  },
-];
-
 function Category({ category, color }: CategoryProps) {
-  const chose = colors[color];
   return (
     <div className="relative w-full overflow-hidden rounded-[5px] hover:cursor-pointer">
       <div

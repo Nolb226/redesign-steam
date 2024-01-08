@@ -5,7 +5,7 @@ import { InfoToolTipProps } from "./InfoToolTip.type";
 function InfoToolTip({ info }: InfoToolTipProps) {
   return (
     <div className="group/tooltip relative w-fit">
-      <div className="absolute bottom-0 left-[10px] mb-10 hidden  min-w-fit translate-x-[-50%]  group-hover/tooltip:block ">
+      <div className="absolute bottom-0 left-[10px] mb-9   min-w-fit origin-bottom translate-x-[-50%] scale-0 transition-all duration-100 ease-in  group-hover/tooltip:scale-100 ">
         <div className="z-10 rounded-[3px] bg-highlight px-4 py-2 shadow-[0_0_4px_1px_rgba(0,0,0,0.25)] body-small">
           <p className="whitespace-nowrap ">{info}</p>
         </div>
