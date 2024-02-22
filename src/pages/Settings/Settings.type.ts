@@ -1,1 +1,2 @@
-export type MenuItem = { name: string; to: string } | { isDivider: boolean };
+export type MenuItem = undefined | { name: string; to: string };
+export type SettingsProps = { MenuItems: MenuItem[] | undefined[] };

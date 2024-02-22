@@ -2,100 +2,10 @@ import React, { useEffect, useState } from "react";
 import Search from "../../components/inputs/Search";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { PATHS } from "../../constants/path";
 import clsx from "clsx";
+import { SettingsProps } from "./Settings.type";
 
-const MenuItems = [
-  {
-    to: PATHS.SETTINGS.ACCOUNT,
-    name: "Account",
-  },
-  {
-    to: "Friends & Chat",
-    name: "Friends & Chat",
-  },
-  {
-    to: "Family",
-    name: "Family",
-  },
-  {
-    to: "Security",
-    name: "Security",
-  },
-  {
-    to: PATHS.SETTINGS.PRIVACY,
-    name: "Privacy",
-  },
-  {
-    to: "Wallet & Purchases",
-    name: "Wallet & Purchases",
-  },
-  {
-    to: "Store Preferences",
-    name: "Store Preferences",
-  },
-  {
-    to: "Language",
-    name: "Language",
-  },
-  {},
-
-  {
-    to: "Language",
-    name: "Notifications",
-  },
-  {
-    to: "Language",
-    name: "Interface",
-  },
-  {
-    to: "Language",
-    name: "Library",
-  },
-  {
-    to: "Language",
-    name: "Downloads",
-  },
-  {
-    to: "Language",
-    name: "Storage",
-  },
-  {
-    to: "Language",
-    name: "Cloud",
-  },
-  {
-    to: "Language",
-    name: "In Game",
-  },
-  {
-    to: "Language",
-    name: "Browsing Data",
-  },
-  {},
-  {
-    to: "Language",
-    name: "Controller",
-  },
-  {
-    to: "Language",
-    name: "Voice",
-  },
-  {
-    to: "Language",
-    name: "Remote Play",
-  },
-  {
-    to: "Language",
-    name: "Broadcast",
-  },
-  {
-    to: "Language",
-    name: "Music",
-  },
-];
-
-function Settings() {
+function Settings({ MenuItems = [] }: SettingsProps) {
   const location = useLocation();
   const [active, setActive] = useState<string>("");
 
@@ -118,14 +28,14 @@ function Settings() {
             <div className="flex flex-col gap-[10px] bg-main p-[15px]">
               <Search />
               {MenuItems.map((item, index) => {
+                if (!item) return <div className="h-[1px] bg-hover"></div>;
                 const regex = new RegExp(`^${active || "account"}$`);
-                const isActive = regex.test(item.to || "account");
-                if (!item.name) return <div className="h-[1px] bg-hover"></div>;
+                const isActive = regex.test(item!.to || "account");
 
                 return (
                   <Link
-                    to={item.to}
-                    key={item.name}
+                    to={item!.to}
+                    key={item!.name}
                     className={clsx(
                       "rounded-[3px] px-[13px] py-2 body-large ",
                       {
@@ -134,7 +44,7 @@ function Settings() {
                       },
                     )}
                   >
-                    {item.name}
+                    {item!.name}
                   </Link>
                 );
               })}

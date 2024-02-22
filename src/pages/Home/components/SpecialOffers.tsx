@@ -4,7 +4,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import Card from "../../../components/Card";
 import { IApp } from "../../../types/apps";
 
-const apps: IApp[] = [
+const apps: any[] = [
   {
     name: "The Last of Us: Part 1",
     poster: "/images/image 53.png",

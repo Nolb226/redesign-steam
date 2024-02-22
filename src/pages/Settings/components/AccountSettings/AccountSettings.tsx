@@ -1,6 +1,6 @@
 import React from "react";
-import Panel from "../Panel";
-import InfoLabel from "../InfoLabel";
+import Panel from "../../../../components/Panel";
+import InfoLabel from "../../../../components/InfoLabel";
 import Button from "../../../../components/buttons/Button";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
@@ -25,7 +25,11 @@ function AccountSettings() {
             <p className="text-primary body-large">NTKH</p>
           </div>
           <div className="flex items-center gap-[10px]">
-            <Button variant="secondary" className="max-w-[166px] flex-1">
+            <Button
+              variant="secondary"
+              to="../profile-settings"
+              className="max-w-[166px] flex-1"
+            >
               Edit Profile
             </Button>
             <Button variant="secondary" className="max-w-[166px] flex-1">

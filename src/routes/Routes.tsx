@@ -2,9 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import HomeLayout from "../components/layouts/HomeLayout";
 import Home from "../pages/Home";
 import Settings from "../pages/Settings";
-import { PATHS } from "../constants/path";
+import { PARAMS, PATHS } from "../constants/path";
 import AccountSettings from "../pages/Settings/components/AccountSettings";
 import PrivacySettings from "../pages/Settings/components/PrivacySettings";
+import Profile from "../pages/Profile";
+import ProfileSetting from "../pages/Profile/Settings";
+import AppDetail from "../pages/App/Details";
+import { AppService } from "../services/app";
+import Browse from "../pages/Browse";
 
 export const routes = createBrowserRouter([
   {
@@ -14,7 +19,99 @@ export const routes = createBrowserRouter([
       { path: "/", element: <Home /> },
       {
         path: PATHS.SETTINGS.IDENTITY,
-        element: <Settings />,
+        element: (
+          <Settings
+            MenuItems={[
+              {
+                to: PATHS.SETTINGS.ACCOUNT,
+                name: "Account",
+              },
+              {
+                to: "Friends & Chat",
+                name: "Friends & Chat",
+              },
+              {
+                to: "Family",
+                name: "Family",
+              },
+              {
+                to: "Security",
+                name: "Security",
+              },
+              {
+                to: PATHS.SETTINGS.PRIVACY,
+                name: "Privacy",
+              },
+              {
+                to: "Wallet & Purchases",
+                name: "Wallet & Purchases",
+              },
+              {
+                to: "Store Preferences",
+                name: "Store Preferences",
+              },
+              {
+                to: "Language",
+                name: "Language",
+              },
+              undefined,
+
+              {
+                to: "Language",
+                name: "Notifications",
+              },
+              {
+                to: "Language",
+                name: "Interface",
+              },
+              {
+                to: "Language",
+                name: "Library",
+              },
+              {
+                to: "Language",
+                name: "Downloads",
+              },
+              {
+                to: "Language",
+                name: "Storage",
+              },
+              {
+                to: "Language",
+                name: "Cloud",
+              },
+              {
+                to: "Language",
+                name: "In Game",
+              },
+              {
+                to: "Language",
+                name: "Browsing Data",
+              },
+              undefined,
+              {
+                to: "Language",
+                name: "Controller",
+              },
+              {
+                to: "Language",
+                name: "Voice",
+              },
+              {
+                to: "Language",
+                name: "Remote Play",
+              },
+              {
+                to: "Language",
+                name: "Broadcast",
+              },
+              {
+                to: "Language",
+                name: "Music",
+              },
+            ]}
+          />
+        ),
         children: [
           {
             path: PATHS.SETTINGS.ACCOUNT,
@@ -25,6 +122,79 @@ export const routes = createBrowserRouter([
             element: <PrivacySettings />,
           },
         ],
+      },
+      {
+        path: "/",
+        element: (
+          <Settings
+            MenuItems={[
+              {
+                name: "About",
+                to: "",
+              },
+              {
+                name: "Avatar",
+                to: "#",
+              },
+              {
+                name: "Profile Background",
+                to: "#",
+              },
+              {
+                name: "Mini Profile",
+                to: "#",
+              },
+              {
+                name: "Theme",
+                to: "#",
+              },
+              {
+                name: "Special Profile",
+                to: "#",
+              },
+              {
+                name: "Featured Badge",
+                to: "#",
+              },
+              {
+                name: "Featured Showcase",
+                to: "#",
+              },
+              undefined,
+              {
+                name: "Privacy Settings",
+                to: `/settings/${PATHS.SETTINGS.PRIVACY}`,
+              },
+              {
+                name: "Points Shop",
+                to: "#",
+              },
+            ]}
+          />
+        ),
+        children: [
+          {
+            path: PATHS.SETTINGS.PROFILES,
+            element: <ProfileSetting />,
+          },
+        ],
+      },
+      {
+        path: `/apps/${PARAMS.APP}`,
+        element: <AppDetail />,
+        loader: async ({ params }) => {
+          const { data } = await AppService.getAppById(params.appId!);
+
+          return data;
+        },
+      },
+      {
+        path: "browse",
+        element: <Browse />,
+        loader: async () => {
+          const { data } = await AppService.getAllApp();
+          return data;
+        },
       },
     ],
   },

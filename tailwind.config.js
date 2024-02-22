@@ -2,7 +2,7 @@ const plugin = require("tailwindcss/plugin");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -55,6 +55,20 @@ module.exports = {
         },
         ".body-small": {
           "font-size": "12px",
+        },
+        ".bb_tag": {
+          color: "#66C0F4",
+          "font-size": "18px",
+          "font-weight": "700",
+          marginBottom: "10px",
+          marginTop: "18px",
+        },
+        ".bb_ul": {
+          marginLeft: "16px",
+          listStyleType: "square",
+        },
+        "ul.bb_ul li": {
+          marginBottom: "8px",
         },
       });
     }),

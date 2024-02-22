@@ -4,7 +4,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import { IApp } from "../../../types/apps";
 import Card from "../../../components/Card";
 
-const apps: IApp[] = [
+const apps: any[] = [
   {
     poster: "/images/image 56.png",
     name: "Destiny 2",
