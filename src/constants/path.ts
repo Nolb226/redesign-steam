@@ -4,6 +4,27 @@ export const PARAMS = {
 
 export const PATHS = {
   HOME: "",
+  STORE: {
+    BROWSE: {
+      IDENTITY: "browse",
+    },
+    APPS: {
+      IDENTITY: "apps",
+      DETAILS: PARAMS.APP,
+    },
+    DISCOVER: {
+      IDENTITY: "discover",
+    },
+    POINT_SHOP: {
+      IDENTITY: "pshop",
+    },
+    WISHLIST: {
+      IDENTITY: "wishlist",
+    },
+    CART: {
+      IDENTITY: "cart",
+    },
+  },
   SETTINGS: {
     IDENTITY: "settings",
     ACCOUNT: "",
