@@ -21,6 +21,10 @@
 
 body {
   font-family: "Motiva Sans";
-  background: #000;
+  background: rgb(20, 52, 75);
+  background: linear-gradient(
+    140deg,
+    rgba(14, 20, 27, 1) 100% rgba(20, 52, 75, 1) 0%
+  );
   color: #f3f3f3;
 }

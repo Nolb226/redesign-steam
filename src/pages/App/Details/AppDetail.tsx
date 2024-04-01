@@ -14,15 +14,24 @@ import Achievements from "./components/Achievements";
 import Links from "./components/Links";
 import About from "./components/About";
 import ReviewsBar from "../../../components/ReviewsBar";
+import useRedux from "../../../hooks/useRedux";
+import { addToCart } from "../../../redux/auth";
 
 function AppDetail() {
   const data = useLoaderData() as IApp;
   console.log(data);
+  const { dispatch } = useRedux();
 
   return (
     <>
       <Helmet>
         <title>{data.name}</title>
+        <meta name="og:title" content={data.name} />
+        <meta name="og:image" content={data.header_image} />
+        <meta
+          name="og:url"
+          content={`https://redesign-steam.vercel.app/apps/${data.id}`}
+        />
       </Helmet>
       <div className="relative h-full bg-gradient-to-b from-[#040011] to-[#202B3C] pb-96 ">
         <div
@@ -113,7 +122,12 @@ function AppDetail() {
                     {/* <p></p> */}
                   </div>
                   <div className="">
-                    <MainCTA price={data.price} />
+                    <MainCTA
+                      handOnClick={() => {
+                        dispatch(addToCart(data));
+                      }}
+                      price={data.price}
+                    />
                   </div>
                 </div>
                 <About detail={data.about_the_game} name={data.name} />

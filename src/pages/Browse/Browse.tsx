@@ -34,7 +34,6 @@ function Browse() {
       ?.slice(currentPage * perPage, (currentPage + 1) * perPage)
       .map((app: IApp) => <AppListItem key={app.name} view={view} app={app} />);
   }, [currentPage, perPage, data, view]);
-  console.log(apps);
 
   return (
     <div className="container mx-auto scroll-smooth pb-[322px]">
@@ -96,6 +95,7 @@ function Browse() {
                 {(gettedData) => {
                   // setData([...gettedData]);
                   const totalPages = Math.ceil(gettedData.length / perPage);
+                  console.log(gettedData);
 
                   return (
                     <>
