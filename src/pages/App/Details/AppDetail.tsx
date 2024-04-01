@@ -28,6 +28,7 @@ function AppDetail() {
         <title>{data.name}</title>
         <meta name="og:title" content={data.name} />
         <meta name="og:image" content={data.header_image} />
+        <meta name="fb:app_id" content={"1146554066347030"} />
         <meta
           name="og:url"
           content={`https://redesign-steam.vercel.app/apps/${data.id}`}
