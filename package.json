@@ -33,7 +33,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && react-snap",
+    "build": "react-scripts build && react-snap --no-sandbox",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
