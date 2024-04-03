@@ -1,49 +1,22 @@
-import { createBrowserRouter, defer } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import HomeLayout from "../components/layouts/HomeLayout";
 import Home from "../pages/Home";
 import Settings from "../pages/Settings";
 import { PARAMS, PATHS } from "../constants/path";
 import AccountSettings from "../pages/Settings/components/AccountSettings";
 import PrivacySettings from "../pages/Settings/components/PrivacySettings";
+import Profile from "../pages/Profile";
 import ProfileSetting from "../pages/Profile/Settings";
 import AppDetail from "../pages/App/Details";
 import { AppService } from "../services/app";
 import Browse from "../pages/Browse";
-import StoreLayout from "../components/layouts/StoreLayout";
-import { BrowseLoader } from "../pages/Browse/loader";
-import Cart from "../pages/Cart";
 
 export const routes = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
     children: [
-      {
-        path: "/",
-        element: <StoreLayout />,
-        children: [
-          { path: "/", element: <Home /> },
-          {
-            path: "browse",
-            element: <Browse />,
-
-            loader: BrowseLoader,
-          },
-          {
-            path: `/apps/${PARAMS.APP}`,
-            element: <AppDetail />,
-            loader: async ({ params }) => {
-              const { data } = await AppService.getAppById(params.appId!);
-
-              return data;
-            },
-          },
-          {
-            path: PATHS.STORE.CART.IDENTITY,
-            element: <Cart />,
-          },
-        ],
-      },
+      { path: "/", element: <Home /> },
       {
         path: PATHS.SETTINGS.IDENTITY,
         element: (
@@ -205,6 +178,23 @@ export const routes = createBrowserRouter([
             element: <ProfileSetting />,
           },
         ],
+      },
+      {
+        path: `/apps/${PARAMS.APP}`,
+        element: <AppDetail />,
+        loader: async ({ params }) => {
+          const { data } = await AppService.getAppById(params.appId!);
+
+          return data;
+        },
+      },
+      {
+        path: "browse",
+        element: <Browse />,
+        loader: async () => {
+          const { data } = await AppService.getAllApp();
+          return data;
+        },
       },
     ],
   },

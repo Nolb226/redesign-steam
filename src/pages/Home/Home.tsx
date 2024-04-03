@@ -10,11 +10,12 @@ import NewUpdate from "./components/NewUpdate";
 import NewTrending from "./components/NewTrending";
 import TopSellers from "./components/TopSellers";
 import UnderPrice from "./components/UnderPrice";
+import Menu from "../../components/layouts/components/Menu";
 
 function Home() {
   return (
     <>
-      {/* <Menu /> */}
+      <Menu />
       <div className="w-full bg-gradient-to-b from-[#040011] to-[#202B3C] pb-96">
         <div className="h-screen">
           <img

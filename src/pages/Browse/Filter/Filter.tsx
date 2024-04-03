@@ -9,14 +9,8 @@ import {
   FilterContextProps,
   FilterProps,
 } from "./Filter.type";
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 import clsx from "clsx";
-import { clear } from "console";
-import {
-  IconFilter,
-  IconFilterCancel,
-  IconFilterOff,
-} from "@tabler/icons-react";
 
 const FilterContext = createContext<FilterContextProps | undefined>(undefined);
 
@@ -112,13 +106,6 @@ const TagsList: AccordionItem[] = [
 function Filter({ onFilter }: FilterProps) {
   const [tags, setTags] = useState<string[]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
-  // useEffect(() => {
-  // }, [tags, onFilter]);
-
-  const clearFilter = () => {
-    setTags([]);
-    onFilter([]);
-  };
 
   const onClickTag = (tag: string) => {
     const alreadyIn = tags.includes(tag);
@@ -145,33 +132,10 @@ function Filter({ onFilter }: FilterProps) {
       <div className="flex flex-col gap-[15px]">
         <div className="flex items-center justify-between">
           <p className="body-medium">FILTERS</p>
-          {!tags.length ? (
-            <button
-              title="Select category first"
-              disabled
-              className=" flex h-[30px] w-[30px] items-center justify-center rounded-[3px] bg-[#76808C]/5 disabled:opacity-20 "
-            >
-              <IconFilter
-                size={20}
-                className="  text-dim"
-                fill="#76808C"
-                stroke={0.5}
-              />
-            </button>
-          ) : (
-            <button
-              title="Clear Filter"
-              onClick={clearFilter}
-              className="flex h-[30px] w-[30px] items-center justify-center rounded-[3px] bg-[#76808C]/5 disabled:opacity-20 "
-            >
-              <IconFilterOff
-                size={20}
-                className="  text-dim"
-                fill="#76808C"
-                stroke={0.5}
-              />
-            </button>
-          )}
+          <FontAwesomeIcon
+            icon={faFilter}
+            className="h-4 w-4 bg-[#76808C]/5 p-[7px] text-dim"
+          />
         </div>
         <Search
           placeholder="Search for a tag..."

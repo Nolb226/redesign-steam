@@ -1,36 +1,27 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import React from "react";
-import { Link } from "react-router-dom";
-import { PATHS } from "../../../../constants/path";
 
 const items = [
-  {
-    text: "Home",
-    to: PATHS.HOME,
-  },
+  // {
+  // 	text: 'Home',
+  // },
   {
     text: "Browse",
-    to: PATHS.STORE.BROWSE.IDENTITY,
   },
   {
     text: "Discover",
-    to: PATHS.STORE.DISCOVER.IDENTITY,
   },
   {
     text: "Points Shop",
-    to: PATHS.STORE.POINT_SHOP.IDENTITY,
   },
   {
     text: "Curators",
-    to: "#",
   },
   {
     text: "Gift Cards",
-    to: "#",
   },
   {
     text: "News",
-    to: "#",
   },
 ];
 
@@ -39,14 +30,16 @@ function Menu() {
     <div className="flex  items-center justify-between bg-tertiary px-[10px] py-[6px] ">
       <div className="">
         <ul className="flex items-center gap-[7px]   text-main">
+          <li className="rounded bg-secondary-color px-7 py-[10px] hover:bg-secondary-color">
+            <p className="md:body-medium lg:body-large">Home</p>
+          </li>
           {items.map((item, i) => (
-            <Link
-              to={item.to}
+            <li
               key={i}
               className="px-7 py-[10px] hover:rounded hover:bg-secondary-color"
             >
               <p className="md:body-medium lg:body-large">{item.text}</p>
-            </Link>
+            </li>
           ))}
         </ul>
       </div>
@@ -69,12 +62,12 @@ function Menu() {
       </div>
       <div className="">
         <ul className="flex items-center">
-          <Link to={PATHS.STORE.WISHLIST.IDENTITY} className="px-7 py-[10px]">
+          <li className="px-7 py-[10px]">
             <p className="body-large">Wishlist</p>
-          </Link>
-          <Link to={PATHS.STORE.CART.IDENTITY} className="px-7 py-[10px]">
+          </li>
+          <li className="px-7 py-[10px]">
             <p className="body-large">Cart</p>
-          </Link>
+          </li>
           <li>
             <div className="flex h-10 w-10 items-center justify-center rounded bg-[#76808C]/10">
               <img src="./Settings.svg" alt="" />
